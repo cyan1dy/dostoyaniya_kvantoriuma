@@ -28,6 +28,21 @@ class Shop(models.Model):
         return self.title
 
 
+class Timetable(models.Model):
+    classroom = models.CharField(max_length=50)
+    dayWeek = models.CharField(max_length=50)
+    time = models.TimeField(auto_now=False, auto_now_add=False,default=None)
+    def __str__(self) -> str:
+        return self.classroom + ' ' + str(self.time)
+
+class Group(models.Model):
+    name = models.CharField(max_length=60)
+    direction = models.TextChoices('kvantumType',
+                                     'VR IT MEDIA IND-DESIGN ENERGY BIO NEURO NANO HI-TECH GEO AERO IND-ROBO')
+    timetable = models.ManyToManyField(Timetable, verbose_name="Дни учёбы")
+    def __str__(self) -> str:
+        return self.name
+
 class Account(models.Model):
     name = models.CharField(max_length=80)
     description = models.CharField(max_length=200)
@@ -42,7 +57,7 @@ class Account(models.Model):
     request_buy = models.CharField(max_length=999)
     score = models.IntegerField()
     size = models.CharField(max_length=10)
-    group = models.ForeignKey(Group, null=True)
+    group = models.ManyToManyField(Group, null=True)
 
     def __str__(self) -> str:
         return self.name
@@ -82,19 +97,6 @@ class Contacts(models.Model):
     def __str__(self) -> str:
         return f"{self.last_name} {self.first_name}"
 
-
-
-class Timetable(models.Model):
-    classroom = models.CharField(50)
-    time = models.CharField(50)
-
-
-
-class Group(models.Model):
-    students = models.ManyToManyField(Account, related_name="Ученики")
-    direction = models.TextChoices('kvantumType',
-                                     'VR IT MEDIA IND-DESIGN ENERGY BIO NEURO NANO HI-TECH GEO AERO IND-ROBO')
-    timetable = models.ManyToManyField(Timetable, related_name="Дни учёбы")
 
 
 
