@@ -170,7 +170,7 @@ header{
 .filter:hover::after{
 	width: calc(100% - 40px);
 }
-.search_mobile{
+.search_mobile {
 	display: none;
 }
 .search{
@@ -427,10 +427,10 @@ p{
 	padding: 5px;
 	margin: 20px 10px;
 	font-size: 110%;
-	opacity: 0.5;
+	opacity: 0.8;
 	background-position:center center;
    	background-size:cover;
-	transform: translateY(100px);
+	transform: translateY(0px);
 	min-height: auto;
 	vertical-align: top;
 	border: 1px solid rgba(255, 255, 255, 0.37);
@@ -457,7 +457,7 @@ p{
 	color: black;
 }
 .main_block > img{
-	opacity: 0.6;
+	opacity: 1;
 	position: absolute;
    	top:50%;
    	left:50%;
@@ -466,6 +466,7 @@ p{
    	height: 250px;
    	object-fit:cover;
 }
+
 .main_block:hover > img{
 	opacity: 0.4;
 }
@@ -736,6 +737,7 @@ span.sim-dot {
 		margin-bottom: 5px;
 	}
 	.search{
+		visibility: hidden;
 		display: none;
 	}
 	.search_mobile{
