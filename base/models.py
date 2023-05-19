@@ -42,6 +42,7 @@ class Account(models.Model):
     request_buy = models.CharField(max_length=999)
     score = models.IntegerField()
     size = models.CharField(max_length=10)
+    group = models.ForeignKey(Group, null=True)
 
     def __str__(self) -> str:
         return self.name
@@ -80,6 +81,21 @@ class Contacts(models.Model):
 
     def __str__(self) -> str:
         return f"{self.last_name} {self.first_name}"
+
+
+
+class Timetable(models.Model):
+    classroom = models.CharField(50)
+    time = models.CharField(50)
+
+
+
+class Group(models.Model):
+    students = models.ManyToManyField(Account, related_name="Ученики")
+    direction = models.TextChoices('kvantumType',
+                                     'VR IT MEDIA IND-DESIGN ENERGY BIO NEURO NANO HI-TECH GEO AERO IND-ROBO')
+    timetable = models.ManyToManyField(Timetable, related_name="Дни учёбы")
+
 
 
 
