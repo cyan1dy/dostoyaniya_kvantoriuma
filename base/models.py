@@ -58,6 +58,7 @@ class Account(models.Model):
     score = models.IntegerField()
     size = models.CharField(max_length=10)
     group = models.ManyToManyField(Group, null=True)
+    projects = models.ManyToManyField(Project, null=True)
 
     def __str__(self) -> str:
         return self.name
