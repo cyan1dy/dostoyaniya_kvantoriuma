@@ -22,9 +22,22 @@
             </div>
             
         </div>
+        <div class="account-timetable-block"> <!-- Здеся надо просто навести красоты -->
+            {% for onegroup in account.group.all %}
+                
+                {% for lesson in onegroup.timetable.all %}
+                    <div class="timetable_block">
+                         <div class="account-timetable"> {{lesson.classroom}} </div>
+                         <div class="account-timetable"> {{lesson.time}} </div>
+                    </div>
+                    <br>
+                {% endfor %}
+                
+            {% endfor %}
+        </div>
         
     </div>
-    <div class="proj_title">Проекты ученика</div>
+    <div class="proj_title">Проекты ученика</div> <!-- Здеся надо просто навести красоты -->
             <div class="infoblock" id="id01">
                 
                 {% for project in account.projects.all %}

@@ -703,7 +703,18 @@ span.sim-dot {
 	text-decoration-style: solid;
 	transition: 0.5s;
 }
+.timetable_block {
+	margin-left: 20px;
+	box-sizing: border-box;
 
+	position: relative;
+	width: 10%;
+	height: 40%;
+
+	background: #000000;
+	border: 2px solid #FFFFFF;
+	border-radius: 15px;
+}
 
 
 @media (max-width: 1440px){
